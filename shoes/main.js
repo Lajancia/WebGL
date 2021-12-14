@@ -184,12 +184,13 @@ this._threejs.setClearColor( 0x000000, 0 ); //default
     //   light = new THREE.AmbientLight(0x5FA3F9, 1.0);
     // this._scene.add(light);
 
- let light = new THREE.PointLight( 0xFF69B4, 15, 150 );
+ let light = new THREE.PointLight( 0xFFffff, 7, 150
+   );
       light.position.set(20, 120, 0);
         light.castShadow = true;
     light.shadow.bias = -0.001;
-    light.shadow.mapSize.width = 2048;
-    light.shadow.mapSize.height = 2048;
+    light.shadow.mapSize.width = 4096;
+    light.shadow.mapSize.height = 4096;
     light.shadow.camera.near = 0.1;
     light.shadow.camera.far = 500.0;
     light.shadow.camera.near = 0.5;
@@ -200,6 +201,24 @@ this._threejs.setClearColor( 0x000000, 0 ); //default
     light.shadow.camera.bottom = -100;
       this._scene.add(light);
 
+
+      let light2 = new THREE.PointLight( 0x0000ff, 5, 150
+        );
+           light2.position.set(10, 100, 0);
+             light2.castShadow = true;
+         light2.shadow.bias = -0.001;
+         light2.shadow.mapSize.width = 4096;
+         light2.shadow.mapSize.height = 4096;
+         light2.shadow.camera.near = 0.1;
+         light2.shadow.camera.far = 500.0;
+         light2.shadow.camera.near = 0.5;
+         light2.shadow.camera.far = 500.0;
+         light2.shadow.camera.left = 100;
+         light2.shadow.camera.right = -100;
+         light2.shadow.camera.top = 100;
+         light2.shadow.camera.bottom = -100;
+           this._scene.add(light2);
+     
 
 
     const controls = new OrbitControls(
@@ -237,7 +256,7 @@ this._threejs.setClearColor( 0x000000, 0 ); //default
   _LoadAnimatedModel() {
     const loader = new FBXLoader();
     loader.setPath('./resources/');
-    loader.load('shoes3.fbx', (fbx) => {
+    loader.load('shoes.fbx', (fbx) => {
       fbx.scale.setScalar(0.1);
       fbx.traverse(c => {
         c.castShadow = true;
